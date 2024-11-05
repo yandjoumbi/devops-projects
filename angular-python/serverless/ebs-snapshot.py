@@ -1,5 +1,5 @@
 import json
-import boto3
+import boto
 import datetime
 import logging
 
