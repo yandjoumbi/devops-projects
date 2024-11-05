@@ -34,24 +34,23 @@ export class AppComponent {
 
 //for development
 getGreeting(){
-    this.http.get<any>('http://10.0.117.237:5000/').subscribe( response => {
+    this.http.get<any>('http://10.0.70.143:5000/').subscribe( response => {
       this.message = response.message
     });
   }
 
 getTodayDate(){
-    this.http.get<any>('http://10.0.117.237:5000/date').subscribe(response => {
+    this.http.get<any>('http://10.0.70.143:5000/date').subscribe(response => {
       this.date = response.date
     });
   }
 
 getHairProducts(){
-  this.http.get<any>('http://10.0.117.237:5000/products').subscribe(response => {
+  this.http.get<any>('http://10.0.70.143:5000/products').subscribe(response => {
         this.products = response;
         console.log(this.products)
       });
   }
-
 
 }
 

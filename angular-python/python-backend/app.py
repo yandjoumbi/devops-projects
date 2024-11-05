@@ -8,7 +8,7 @@ CORS(app, resources={r"/*": {"origins": "*"}})
 # A sample API endpoint that returns data
 @app.route('/', methods=['GET'])
 def greeting():
-    return jsonify({"message": "Hello from Murielle Wando"})
+    return jsonify({"message": "Hello from python back-end"})
 
 @app.route('/date', methods=['GET'])
 def todayDate():
@@ -17,8 +17,8 @@ def todayDate():
 
 @app.route('/products', methods=['GET'])
 def getProducts():
-    hair_products = ['shampoo', 'soaps', 'moisturize', 'hair lotion']
-    return hair_products
+    products = ['shoes', 'clothes', 'hats', 'jewelry']
+    return products
 
 
 if __name__ == '__main__':

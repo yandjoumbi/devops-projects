@@ -1,35 +1,3 @@
-data "aws_ami" "ubuntu_ami" {
-  owners = ["self"]
-
-  filter {
-    name   = "name"
-    values = ["yannick-custom-ubuntu-*"]
-  }
-}
-
-data "aws_key_pair" "key_name" {
-  key_name = "my-key-pair"
-}
-
-locals {
-  ami_id        = data.aws_ami.ubuntu_ami.id
-  key_pair_name = data.aws_key_pair.key_name.key_name
-
-  user_data_web = <<-EOF
-    #!/bin/bash
-    sudo apt-get update -y
-    sudo apt-get upgrade -y
-    sudo docker run -d -p 4200:4200 --name frontend yandjoumbi/angular-python-frontend:3
-  EOF
-
-  user_data_app = <<-EOF
-    #!/bin/bash
-    sudo apt-get update -y
-    sudo apt-get upgrade -y
-    sudo docker run -d -p 5000:5000 --name backend  yandjoumbi/angular-python-backend:3
-  EOF
-}
-
 # Load Balancer for Web and Application Layers
 resource "aws_lb" "app_lb" {
   name               = "app-lb"
@@ -85,7 +53,7 @@ resource "aws_lb_listener" "app_lb_listener" {
   protocol          = "HTTP"
 
   default_action {
-    type             = "fixed-response"
+    type = "fixed-response"
     fixed_response {
       content_type = "text/plain"
       message_body = "Not Found"
