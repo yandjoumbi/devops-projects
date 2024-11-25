@@ -161,6 +161,10 @@ resource "aws_autoscaling_group" "app_asg" {
 }
 
 
+
+
+
+
 ## Load Balancer for Web Layer
 #resource "aws_lb" "web_lb" {
 #  name               = "web-lb"

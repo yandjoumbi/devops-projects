@@ -5,7 +5,7 @@ from datetime import date
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-# A sample API endpoint that returns data
+
 @app.route('/', methods=['GET'])
 def greeting():
     return jsonify({"message": "Hello from python back-end"})

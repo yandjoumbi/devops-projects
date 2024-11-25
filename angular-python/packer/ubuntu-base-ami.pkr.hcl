@@ -37,10 +37,9 @@ variable "subnet_id"{
   default = "subnet-0e962654c615107c0"
 }
 
-locals { timestamp = regex_replace(timestamp(), "[- TZ:]", "") }
-
 locals {
   ami_name = "yannick-custom-ubuntu-ami-${local.timestamp}"
+  timestamp = regex_replace(timestamp(), "[- TZ:]", "")
 }
 
 source "amazon-ebs" "ubuntu_ami" {

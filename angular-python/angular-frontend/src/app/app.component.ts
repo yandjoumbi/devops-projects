@@ -23,16 +23,6 @@ export class AppComponent {
     this.getHairProducts();
   }
 
-//for production
-//   getGreeting(){
-//     this.http.get<any>('http://flask-backend-service:5000').subscribe( response => {
-//       this.message = response.message
-//     });
-//   }
-//
-// }
-
-//for development
 getGreeting(){
     this.http.get<any>('http://10.0.70.143:5000/').subscribe( response => {
       this.message = response.message
@@ -51,7 +41,6 @@ getHairProducts(){
         console.log(this.products)
       });
   }
-
 }
 
 
